@@ -55,7 +55,7 @@ if(OpenCV_FOUND)
 endif()
 
 include_directories(core/src)
-add_library(libzxing SHARED ${LIBZXING_FILES})
+add_library(libzxing STATIC ${LIBZXING_FILES})
 set_target_properties(libzxing PROPERTIES PREFIX "")
 
 # find_package(Iconv)
@@ -85,12 +85,13 @@ file(GLOB_RECURSE ZXING_FILES
 add_executable(zxing ${ZXING_FILES})
 target_link_libraries(zxing libzxing)
 
-install(TARGETS zxing libzxing EXPORT zxing-targets
+install(TARGETS zxing EXPORT zxing-targets
 	LIBRARY DESTINATION lib
 	RUNTIME DESTINATION bin
 	ARCHIVE DESTINATION lib
     INCLUDES DESTINATION include
 )
+install(TARGETS libzxing ARCHIVE DESTINATION lib)
 
 install(EXPORT zxing-targets DESTINATION lib/zxing/cmake NAMESPACE zxing::)
 
