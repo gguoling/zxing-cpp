@@ -43,7 +43,7 @@ if(WIN32)
 endif()
 
 # OpenCV classes
-find_package(OpenCV)
+# find_package(OpenCV)
 if(OpenCV_FOUND)
     list(APPEND LIBZXING_FILES
         opencv/src/zxing/MatSource.cpp
@@ -82,18 +82,18 @@ file(GLOB_RECURSE ZXING_FILES
     "./cli/src/*.h"
 )
 
-add_executable(zxing ${ZXING_FILES})
-target_link_libraries(zxing libzxing)
-
-install(TARGETS zxing EXPORT zxing-targets
-	LIBRARY DESTINATION lib
-	RUNTIME DESTINATION bin
-	ARCHIVE DESTINATION lib
-    INCLUDES DESTINATION include
-)
+# add_executable(zxing ${ZXING_FILES})
+# target_link_libraries(zxing libzxing)
+# 
+# install(TARGETS zxing EXPORT zxing-targets
+# 	LIBRARY DESTINATION lib
+# 	RUNTIME DESTINATION bin
+# 	ARCHIVE DESTINATION lib
+#     INCLUDES DESTINATION include
+# )
 install(TARGETS libzxing ARCHIVE DESTINATION lib)
 
-install(EXPORT zxing-targets DESTINATION lib/zxing/cmake NAMESPACE zxing::)
+# install(EXPORT zxing-targets DESTINATION lib/zxing/cmake NAMESPACE zxing::)
 
 install(
     DIRECTORY core/src/zxing/
