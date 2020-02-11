@@ -93,7 +93,7 @@ file(GLOB_RECURSE ZXING_FILES
 # 	ARCHIVE DESTINATION lib
 #     INCLUDES DESTINATION include
 # )
-install(TARGETS libzxing ARCHIVE DESTINATION lib)
+install(TARGETS libzxing ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 # install(EXPORT zxing-targets DESTINATION lib/zxing/cmake NAMESPACE zxing::)
 
